@@ -8,8 +8,6 @@ django = "*"
 python-dotenv = "*"
 crispy-tailwind = "*"
 better-profanity = "*"
-djongo-fixed = "*"
-pytz = "*"
 psycopg = "*"
 
 [dev-packages]
