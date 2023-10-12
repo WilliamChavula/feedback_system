@@ -8,6 +8,7 @@ django = "*"
 python-dotenv = "*"
 crispy-tailwind = "*"
 better-profanity = "*"
+djongo-fixed = "*"
 
 [dev-packages]
 black = "*"
