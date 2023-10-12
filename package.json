@@ -1,0 +1,10 @@
+{
+  "name": "student_feedback_system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "williamchavula <rumbani@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
