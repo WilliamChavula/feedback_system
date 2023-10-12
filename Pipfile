@@ -9,6 +9,7 @@ python-dotenv = "*"
 crispy-tailwind = "*"
 better-profanity = "*"
 djongo-fixed = "*"
+pytz = "*"
 
 [dev-packages]
 black = "*"
