@@ -8,12 +8,11 @@ class AppUser(AbstractUser):
     email = models.EmailField(
         _("email address"),
         help_text="Required. Enter a valid email address",
-        unique=True,
-        blank=True,
+        unique=True
     )
     USERNAME_FIELD = "email"
 
     REQUIRED_FIELDS = ["username"]
 
     def __str__(self):
-        return f"{self.email}"
+        return self.email
