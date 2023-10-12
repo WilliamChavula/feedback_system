@@ -75,6 +75,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "feedback.AppUser"
 
 LANGUAGE_CODE = 'en-us'
 
