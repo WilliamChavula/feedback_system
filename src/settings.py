@@ -60,8 +60,12 @@ WSGI_APPLICATION = 'src.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'feedback_db',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('NAME'),
+        'PASSWORD': '',
+        'USER': '',
+        'HOST': os.getenv('HOST'),
+        'PORT': os.getenv('PORT')
     }
 }
 
