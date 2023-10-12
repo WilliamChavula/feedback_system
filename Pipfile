@@ -10,6 +10,7 @@ crispy-tailwind = "*"
 better-profanity = "*"
 djongo-fixed = "*"
 pytz = "*"
+psycopg = "*"
 
 [dev-packages]
 black = "*"
