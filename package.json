@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "williamchavula <rumbani@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev:styles": "yarn tailwindcss -i ./assets/styles/src/styles.css -o ./assets/styles/build/main.css --watch"
+  },
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   }
