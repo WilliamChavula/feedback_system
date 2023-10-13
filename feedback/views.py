@@ -1,3 +1,16 @@
-from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import ListView, FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
+from .forms import AddFeedbackForm
+from .models import Feedback
+
+
+class FeedbackListView(ListView):
+    model = Feedback
+    context_object_name = "list"
+
+
+class AddFeedbackView(LoginRequiredMixin, FormView):
+    form_class = AddFeedbackForm
+    success_url = reverse_lazy("feedback:list")
