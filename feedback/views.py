@@ -9,6 +9,7 @@ from .models import Feedback
 class FeedbackListView(ListView):
     model = Feedback
     context_object_name = "list"
+    template_name = "feedback/list.html"
 
 
 class AddFeedbackView(LoginRequiredMixin, FormView):
