@@ -21,6 +21,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Project applications
+    "account.apps.AccountConfig",
     "feedback.apps.FeedbackConfig",
 ]
 
@@ -84,7 +86,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # LOGIN_REDIRECT_URL = "dashboard:board"
 # LOGOUT_REDIRECT_URL = "core:home"
 
-AUTH_USER_MODEL = "feedback.AppUser"
+AUTH_USER_MODEL = "account.AppUser"
 
 LANGUAGE_CODE = "en-us"
 
