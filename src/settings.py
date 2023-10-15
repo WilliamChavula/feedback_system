@@ -82,9 +82,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# LOGIN_URL = "accounts:login"
-# LOGIN_REDIRECT_URL = "dashboard:board"
-# LOGOUT_REDIRECT_URL = "core:home"
+LOGIN_URL = "account:login"
+LOGIN_REDIRECT_URL = "feedback:add"
+LOGOUT_REDIRECT_URL = "feedback:list"
 
 AUTH_USER_MODEL = "account.AppUser"
 

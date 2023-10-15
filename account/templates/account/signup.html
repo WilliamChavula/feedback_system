@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="">
+                {{ field.errors }}
+                {{ field.label_tag }} {{ field }}
+                {% if field.help_text %}
+                    <div class="mb-4 text-sm text-slate-500"> {{ field.help_text|safe }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </form>
+{% endblock %}
