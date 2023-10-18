@@ -2,8 +2,6 @@ from django import forms
 from django.contrib.auth import get_user_model, password_validation
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
-AppUser = get_user_model()
-
 
 class LoginForm(AuthenticationForm):
     class Meta:
@@ -31,10 +29,19 @@ class LoginForm(AuthenticationForm):
 
 class RegistrationForm(UserCreationForm):
     class Meta:
-        model = AppUser
-        fields = ("username", "password1", "password2")
+        model = get_user_model()
+        fields = ("username", "email", "password1", "password2")
 
     username = forms.CharField(
+        label="Email",
+        widget=forms.TextInput(
+            attrs={
+                "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3 "
+                         "focus:outline-none focus:border-blue-700"
+            }
+        ),
+    )
+    email = forms.CharField(
         label="Email",
         widget=forms.TextInput(
             attrs={
