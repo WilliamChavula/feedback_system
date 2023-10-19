@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Student Feedback{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="my-3">
+                {{ field.errors }}{{ field }}
+                {% if field.help_text %}
+                    <div class="mb-4 text-xs text-slate-400"> {{ field.help_text|safe }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button
+                type="submit"
+                class="border border-gray-700 bg-gray-700 text-white rounded-md px-4 py-2 my-2 transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+        >
+            Submit
+        </button>
+    </form>
+{% endblock %}
