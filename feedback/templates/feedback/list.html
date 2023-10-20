@@ -2,5 +2,11 @@
 {% block title %}Student Feedback{% endblock %}
 
 {% block content %}
-    <p>Hello World</p>
+    <div class="w-full">
+        {% for review in list %}
+            {% include 'feedback/partials/card.html' with review=review.feedback_text reviewer=review.student reviewed_on=review.date_added|date %}
+
+        {% endfor %}
+
+    </div>
 {% endblock %}
