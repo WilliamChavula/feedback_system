@@ -9,18 +9,22 @@
 </head>
 <body>
 {% include 'partials/navbar.html' %}
-<main class="container max-w-7xl mx-auto min-h-screen">
+<main class="container mx-auto min-h-screen">
 
     {% if messages %}
         {% for message in messages %}
-            <div
-                    class="mb-3 inline-flex w-full items-center rounded-lg bg-green-300 px-3 py-3 text-base text-green-700"
-                    role="alert">
-                  <span class="mr-2">
-                    <i class="fa-solid fa-circle-check"></i>
-                  </span>
-                {{ message }}
-            </div>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="mb-3 inline-flex w-full items-center rounded-lg bg-red-200 px-3 py-3 text-base text-red-700"
+                     role="alert">
+            {% else %}
+                <div class="mb-3 inline-flex w-full items-center rounded-lg bg-green-300 px-3 py-3 text-base text-green-700"
+                     role="alert">
+            {% endif %}
+        <span class="mr-2">
+                <i class="fa-solid fa-circle-check"></i>
+              </span>
+        {{ message }}
+        </div>
         {% endfor %}
     {% endif %}
 
