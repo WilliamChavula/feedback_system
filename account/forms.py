@@ -12,7 +12,7 @@ class LoginForm(AuthenticationForm):
         widget=forms.EmailInput(
             attrs={
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3"
-                         " focus:outline-none focus:border-blue-700"
+                " focus:outline-none focus:border-blue-700"
             }
         ),
     )
@@ -21,7 +21,7 @@ class LoginForm(AuthenticationForm):
         widget=forms.PasswordInput(
             attrs={
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3"
-                         " focus:outline-none focus:border-blue-700"
+                " focus:outline-none focus:border-blue-700"
             }
         ),
     )
@@ -30,23 +30,14 @@ class LoginForm(AuthenticationForm):
 class RegistrationForm(UserCreationForm):
     class Meta:
         model = get_user_model()
-        fields = ("username", "email", "password1", "password2")
+        fields = ("email", "password1", "password2")
 
-    username = forms.CharField(
-        label="Email",
-        widget=forms.TextInput(
-            attrs={
-                "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3 "
-                         "focus:outline-none focus:border-blue-700"
-            }
-        ),
-    )
     email = forms.CharField(
         label="Email",
         widget=forms.TextInput(
             attrs={
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3 "
-                         "focus:outline-none focus:border-blue-700"
+                "focus:outline-none focus:border-blue-700"
             }
         ),
     )
@@ -56,7 +47,7 @@ class RegistrationForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3 "
-                         "focus:outline-none focus:border-blue-700"
+                "focus:outline-none focus:border-blue-700"
             }
         ),
     )
@@ -65,7 +56,7 @@ class RegistrationForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3 "
-                         "focus:outline-none focus:border-blue-700"
+                "focus:outline-none focus:border-blue-700"
             }
         ),
     )
