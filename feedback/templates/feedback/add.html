@@ -6,7 +6,8 @@
         {% csrf_token %}
         {% for field in form %}
             <div class="my-3">
-                {{ field.errors }}{{ field }}
+                <div class="text-xs text-red-400">{{ field.errors }}</div>
+                {{ field }}
                 {% if field.help_text %}
                     <div class="mb-4 text-xs text-slate-400"> {{ field.help_text|safe }}</div>
                 {% endif %}

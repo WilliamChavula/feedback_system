@@ -56,3 +56,7 @@ class Instructor(models.Model):
 
     def __str__(self) -> str:
         return f"{self.instructor_type} {self.name}"
+
+
+# Todo:
+#   - Wire up the extra classes

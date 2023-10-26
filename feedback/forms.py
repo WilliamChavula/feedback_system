@@ -3,6 +3,11 @@ from django import forms
 from .models import Feedback
 
 
+def validate_field_not_empty(field_value: str) -> None:
+    if field_value == "":
+        raise forms.ValidationError("Field Cannot be empty")
+
+
 class AddFeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
@@ -14,6 +19,7 @@ class AddFeedbackForm(forms.ModelForm):
         )
 
     course_name = forms.CharField(
+        validators=[validate_field_not_empty],
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Name of Course",
@@ -24,6 +30,7 @@ class AddFeedbackForm(forms.ModelForm):
     )
 
     course_code = forms.CharField(
+        validators=[validate_field_not_empty],
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Course Code",
@@ -34,6 +41,7 @@ class AddFeedbackForm(forms.ModelForm):
     )
 
     professor = forms.CharField(
+        validators=[validate_field_not_empty],
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Professor",
@@ -45,6 +53,7 @@ class AddFeedbackForm(forms.ModelForm):
     )
 
     feedback_text = forms.CharField(
+        validators=[validate_field_not_empty],
         widget=forms.Textarea(
             attrs={
                 "placeholder": "Write your review",
@@ -54,3 +63,6 @@ class AddFeedbackForm(forms.ModelForm):
         ),
         help_text="Obscene language is not accepted. Please be kind, polite, and constructive in your review.",
     )
+
+# Todo:
+#   - Add Validation to check for empty fields
