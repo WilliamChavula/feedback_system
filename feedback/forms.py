@@ -24,7 +24,7 @@ class AddFeedbackForm(forms.ModelForm):
             attrs={
                 "placeholder": "Name of Course",
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3 "
-                         "focus:outline-none focus:border-blue-700",
+                "focus:outline-none focus:border-blue-700",
             }
         ),
     )
@@ -35,7 +35,7 @@ class AddFeedbackForm(forms.ModelForm):
             attrs={
                 "placeholder": "Course Code",
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-1 "
-                         "focus:outline-none focus:border-blue-700",
+                "focus:outline-none focus:border-blue-700",
             }
         ),
     )
@@ -46,7 +46,7 @@ class AddFeedbackForm(forms.ModelForm):
             attrs={
                 "placeholder": "Professor",
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-1 "
-                         "focus:outline-none focus:border-blue-700",
+                "focus:outline-none focus:border-blue-700",
             }
         ),
         help_text="Who teaches this course?",
@@ -58,11 +58,12 @@ class AddFeedbackForm(forms.ModelForm):
             attrs={
                 "placeholder": "Write your review",
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-1 "
-                         "focus:outline-none focus:border-blue-700",
+                "focus:outline-none focus:border-blue-700",
             }
         ),
         help_text="Obscene language is not accepted. Please be kind, polite, and constructive in your review.",
     )
+
 
 # Todo:
 #   - Add Validation to check for empty fields
