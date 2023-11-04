@@ -9,6 +9,7 @@ python-dotenv = "*"
 crispy-tailwind = "*"
 better-profanity = "*"
 psycopg = "*"
+gunicorn = "*"
 
 [dev-packages]
 black = "*"

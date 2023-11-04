@@ -19,7 +19,7 @@ media
 .idea/**/*
 
 # Pipenv
-Pipfile.lock
+#Pipfile.lock
 
 # AWS User-specific
 .idea/**/aws.xml
