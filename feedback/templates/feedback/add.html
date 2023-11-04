@@ -1,23 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Student Feedback{% endblock %}
 
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {% for field in form %}
-            <div class="my-3">
-                <div class="text-xs text-red-400">{{ field.errors }}</div>
-                {{ field }}
-                {% if field.help_text %}
-                    <div class="mb-4 text-xs text-slate-400"> {{ field.help_text|safe }}</div>
-                {% endif %}
-            </div>
-        {% endfor %}
-        <button
-                type="submit"
-                class="border border-gray-700 bg-gray-700 text-white rounded-md px-4 py-2 my-2 transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline"
-        >
-            Submit
-        </button>
-    </form>
+    <div class="lg:flex">
+        <div class="w-2/3 px-6 mr-4">
+            <img src="{% static 'images/review_add.svg' %}" alt="Users typing reviews" class="inline-block">
+        </div>
+        <div class="w-full">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="my-3">
+                        <div class="text-xs text-red-400">{{ field.errors }}</div>
+                        {{ field }}
+                        {% if field.help_text %}
+                            <div class="mb-4 text-xs text-slate-400"> {{ field.help_text|safe }}</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <button
+                        type="submit"
+                        class="border border-gray-700 bg-gray-700 text-white rounded-md px-4 py-2 my-2 transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+                >
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, TemplateView
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -16,7 +16,7 @@ class FeedbackListView(ListView):
 
 class AddFeedbackView(LoginRequiredMixin, CreateView):
     form_class = AddFeedbackForm
-    success_url = reverse_lazy("feedback:list")
+    success_url = reverse_lazy("feedback:success")
     template_name = "feedback/add.html"
     service: ICensorService = CensorService()
 
@@ -36,5 +36,5 @@ class AddFeedbackView(LoginRequiredMixin, CreateView):
         return super(AddFeedbackView, self).form_valid(form)
 
 
-# Todo:
-#   - Add graphics to the templates.
+class AddFeedbackSuccessView(LoginRequiredMixin, TemplateView):
+    template_name = "feedback/success.html"

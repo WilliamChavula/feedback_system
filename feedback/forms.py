@@ -3,9 +3,9 @@ from django import forms
 from .models import Feedback
 
 
-def validate_field_not_empty(field_value: str) -> None:
-    if field_value == "":
-        raise forms.ValidationError("Field Cannot be empty")
+def validate_field_not_empty(value, field_name="Field"):
+    if value == "":
+        raise forms.ValidationError("%(field)s Cannot be empty" % {"field": field_name})
 
 
 class AddFeedbackForm(forms.ModelForm):
@@ -19,7 +19,7 @@ class AddFeedbackForm(forms.ModelForm):
         )
 
     course_name = forms.CharField(
-        validators=[validate_field_not_empty],
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Name of Course",
@@ -30,7 +30,7 @@ class AddFeedbackForm(forms.ModelForm):
     )
 
     course_code = forms.CharField(
-        validators=[validate_field_not_empty],
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Course Code",
@@ -41,7 +41,7 @@ class AddFeedbackForm(forms.ModelForm):
     )
 
     professor = forms.CharField(
-        validators=[validate_field_not_empty],
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Professor",
@@ -53,6 +53,7 @@ class AddFeedbackForm(forms.ModelForm):
     )
 
     feedback_text = forms.CharField(
+        required=False,
         validators=[validate_field_not_empty],
         widget=forms.Textarea(
             attrs={
@@ -64,6 +65,28 @@ class AddFeedbackForm(forms.ModelForm):
         help_text="Obscene language is not accepted. Please be kind, polite, and constructive in your review.",
     )
 
+    def clean_course_name(self):
+        course = self.cleaned_data["course_name"]
 
-# Todo:
-#   - Add Validation to check for empty fields
+        validate_field_not_empty(course, field_name="Course")
+
+        return course
+
+    def clean_course_code(self):
+        code = self.cleaned_data["course_code"]
+
+        validate_field_not_empty(code, field_name="Course Code")
+
+        return code
+
+    def clean_professor(self):
+        prof = self.cleaned_data["professor"]
+
+        validate_field_not_empty(prof, field_name="Professor")
+        return prof
+
+    def clean_feedback_text(self):
+        txt = self.cleaned_data["feedback_text"]
+
+        validate_field_not_empty(txt, field_name="Feedback")
+        return txt

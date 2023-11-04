@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Student Feedback{% endblock %}
 
 {% block content %}
-    <div class="w-full">
-        {% for review in list %}
-            {% include 'feedback/partials/card.html' with review=review.feedback_text reviewer=review.student reviewed_on=review.date_added|date %}
+    <div class="lg:flex">
+        <div class="">
+            {% for review in list %}
+                {% include 'feedback/partials/card.html' with review=review.feedback_text reviewer=review.student reviewed_on=review.date_added|date %}
 
-        {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="px-6 mr-4 w-1/2 sticky">
+            <img src="{% static 'images/review_list.svg' %}" alt="List of Reviews" class="inline-block">
+        </div>
+
 
     </div>
 {% endblock %}

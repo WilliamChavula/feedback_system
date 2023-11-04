@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Success{% endblock %}
+
+{% block content %}
+    <div class="flex flex-col justify-center items-center">
+        <div class="text-3xl text-slate-900 font-semibold mb-4">Thanks! Your feedback has been added</div>
+        <div class="w-[80%]">
+            <img src="{% static 'images/review_success.jpg' %}" alt="Users typing reviews" class="inline-block">
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        (
+            function () {
+                setTimeout(() => {
+                    window.location.replace("{% url 'feedback:list' %}")
+                }, 2000)
+            }
+        )()
+    </script>
+{% endblock %}

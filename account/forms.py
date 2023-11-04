@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model, password_validation
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.core.validators import validate_email
 
+from .models import AppUser
+
 
 class LoginForm(AuthenticationForm):
     class Meta:
@@ -91,6 +93,11 @@ class RegistrationForm(UserCreationForm):
         if input_email == "":
             raise forms.ValidationError("Email field cannot be empty")
 
+        domain: str = input_email.split("@")[1]
+
+        if "smu.edu" not in domain:  # Todo: improve
+            raise forms.ValidationError("Must be a valid smu email address")
+
         return input_email
 
     def clean_password1(self) -> str:
@@ -110,3 +117,12 @@ class RegistrationForm(UserCreationForm):
         if form_dict["password1"] != form_dict["password2"]:
             raise forms.ValidationError("Passwords do not match")
         return form_dict["password2"]
+
+    def save(self, commit=True):
+        instance = super(RegistrationForm, self).save(commit=False)
+        instance.username = self.cleaned_data["email"]
+
+        if commit:
+            instance.save()
+
+        return instance
