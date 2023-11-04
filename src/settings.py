@@ -8,9 +8,9 @@ load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "student-feedback-ab911aa413c5.herokuapp.com"]
 
 # Application definition
 
