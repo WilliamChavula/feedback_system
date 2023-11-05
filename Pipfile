@@ -10,6 +10,7 @@ crispy-tailwind = "*"
 better-profanity = "*"
 psycopg = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 black = "*"
