@@ -17,7 +17,7 @@ class LoginForm(AuthenticationForm):
         widget=forms.EmailInput(
             attrs={
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3"
-                " focus:outline-none focus:border-blue-700"
+                         " focus:outline-none focus:border-blue-700"
             }
         ),
     )
@@ -27,7 +27,7 @@ class LoginForm(AuthenticationForm):
         widget=forms.PasswordInput(
             attrs={
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3"
-                " focus:outline-none focus:border-blue-700"
+                         " focus:outline-none focus:border-blue-700"
             }
         ),
     )
@@ -56,12 +56,13 @@ class RegistrationForm(UserCreationForm):
 
     email = forms.CharField(
         label="Email",
+        help_text="Register with a email with @smu.edu domain",
         required=False,
         validators=[validate_email],
         widget=forms.EmailInput(
             attrs={
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3 "
-                "focus:outline-none focus:border-blue-700"
+                         "focus:outline-none focus:border-blue-700"
             }
         ),
     )
@@ -72,7 +73,7 @@ class RegistrationForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3 "
-                "focus:outline-none focus:border-blue-700"
+                         "focus:outline-none focus:border-blue-700"
             }
         ),
     )
@@ -82,7 +83,7 @@ class RegistrationForm(UserCreationForm):
         widget=forms.PasswordInput(
             attrs={
                 "class": "w-full border border-gray-300 rounded-md py-2 px-3 my-3 "
-                "focus:outline-none focus:border-blue-700"
+                         "focus:outline-none focus:border-blue-700"
             }
         ),
     )
